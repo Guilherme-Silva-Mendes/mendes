@@ -1,0 +1,202 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Mendes",
+  "scopeName": "source.mendes",
+  "patterns": [
+    { "include": "#comments" },
+    { "include": "#strings" },
+    { "include": "#numbers" },
+    { "include": "#keywords" },
+    { "include": "#types" },
+    { "include": "#http-methods" },
+    { "include": "#functions" },
+    { "include": "#operators" },
+    { "include": "#punctuation" },
+    { "include": "#variables" }
+  ],
+  "repository": {
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-slash.mendes",
+          "match": "//.*$"
+        },
+        {
+          "name": "comment.block.mendes",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.mendes",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.mendes",
+              "match": "\\\\."
+            },
+            {
+              "name": "variable.other.interpolation.mendes",
+              "match": "\\{[^}]+\\}"
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.single.mendes",
+          "begin": "'",
+          "end": "'",
+          "patterns": [
+            {
+              "name": "constant.character.escape.mendes",
+              "match": "\\\\."
+            }
+          ]
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric.float.mendes",
+          "match": "\\b\\d+\\.\\d+([eE][+-]?\\d+)?\\b"
+        },
+        {
+          "name": "constant.numeric.hex.mendes",
+          "match": "\\b0x[0-9a-fA-F]+\\b"
+        },
+        {
+          "name": "constant.numeric.binary.mendes",
+          "match": "\\b0b[01]+\\b"
+        },
+        {
+          "name": "constant.numeric.integer.mendes",
+          "match": "\\b\\d+\\b"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.control.mendes",
+          "match": "\\b(if|else|for|in|while|match|return|break|continue|await)\\b"
+        },
+        {
+          "name": "keyword.declaration.mendes",
+          "match": "\\b(let|mut|fn|struct|enum|impl|trait|api|server|db|middleware|mod|use|import|pub|async)\\b"
+        },
+        {
+          "name": "constant.language.boolean.mendes",
+          "match": "\\b(true|false)\\b"
+        },
+        {
+          "name": "constant.language.option.mendes",
+          "match": "\\b(Some|None|Ok|Err)\\b"
+        },
+        {
+          "name": "variable.language.mendes",
+          "match": "\\b(self|req|res|ctx)\\b"
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "storage.type.primitive.mendes",
+          "match": "\\b(int|float|bool|string|char)\\b"
+        },
+        {
+          "name": "storage.type.composite.mendes",
+          "match": "\\b(Option|Result|Vec|Map|Set|Array)\\b"
+        },
+        {
+          "name": "entity.name.type.mendes",
+          "match": "\\b[A-Z][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    },
+    "http-methods": {
+      "patterns": [
+        {
+          "name": "keyword.other.http-method.mendes",
+          "match": "\\b(GET|POST|PUT|DELETE|PATCH|HEAD|OPTIONS)\\b"
+        },
+        {
+          "name": "string.other.path.mendes",
+          "match": "(/[a-zA-Z0-9_{}/-]*)"
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "entity.name.function.mendes",
+          "match": "\\b([a-z_][a-zA-Z0-9_]*)\\s*(?=\\()"
+        },
+        {
+          "name": "entity.name.function.method.mendes",
+          "match": "\\.([a-z_][a-zA-Z0-9_]*)\\s*(?=\\()"
+        }
+      ]
+    },
+    "operators": {
+      "patterns": [
+        {
+          "name": "keyword.operator.comparison.mendes",
+          "match": "(==|!=|<=|>=|<|>)"
+        },
+        {
+          "name": "keyword.operator.arithmetic.mendes",
+          "match": "(\\+|-|\\*|/|%)"
+        },
+        {
+          "name": "keyword.operator.logical.mendes",
+          "match": "(&&|\\|\\||!)"
+        },
+        {
+          "name": "keyword.operator.assignment.mendes",
+          "match": "(=|\\+=|-=|\\*=|/=)"
+        },
+        {
+          "name": "keyword.operator.arrow.mendes",
+          "match": "(->|=>)"
+        },
+        {
+          "name": "keyword.operator.reference.mendes",
+          "match": "(&mut|&)"
+        },
+        {
+          "name": "keyword.operator.range.mendes",
+          "match": "(\\.\\.\\.|\\.\\.|::)"
+        },
+        {
+          "name": "keyword.operator.question.mendes",
+          "match": "\\?"
+        }
+      ]
+    },
+    "punctuation": {
+      "patterns": [
+        {
+          "name": "punctuation.separator.mendes",
+          "match": "(:|,|;)"
+        },
+        {
+          "name": "punctuation.brackets.mendes",
+          "match": "(\\{|\\}|\\[|\\]|\\(|\\))"
+        }
+      ]
+    },
+    "variables": {
+      "patterns": [
+        {
+          "name": "variable.other.mendes",
+          "match": "\\b[a-z_][a-zA-Z0-9_]*\\b"
+        }
+      ]
+    }
+  }
+}

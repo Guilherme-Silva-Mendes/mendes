@@ -1,0 +1,50 @@
+{
+  "name": "mendes-language",
+  "displayName": "Mendes Language",
+  "description": "Syntax highlighting and language support for Mendes programming language",
+  "version": "0.1.0",
+  "publisher": "mendes-lang",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "keywords": [
+    "mendes",
+    "backend",
+    "http",
+    "async"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Guilherme-Silva-Mendes/mendes"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "mendes",
+        "aliases": ["Mendes", "mendes"],
+        "extensions": [".ms"],
+        "configuration": "./language-configuration.json",
+        "icon": {
+          "light": "./icons/mendes-light.png",
+          "dark": "./icons/mendes-dark.png"
+        }
+      }
+    ],
+    "grammars": [
+      {
+        "language": "mendes",
+        "scopeName": "source.mendes",
+        "path": "./syntaxes/mendes.tmLanguage.json"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "mendes",
+        "path": "./snippets/mendes.json"
+      }
+    ]
+  }
+}
