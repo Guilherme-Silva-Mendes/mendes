@@ -1,0 +1,19 @@
+[package]
+name = "mendes-codegen"
+description = "Code generation for the Mendes language (C, Rust, LLVM backends)"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[features]
+default = []
+llvm = ["inkwell"]
+
+[dependencies]
+mendes-error = { path = "../mendes-error" }
+mendes-ir = { path = "../mendes-ir" }
+
+# LLVM bindings (requires LLVM 17 installed on the system)
+# Enable with: cargo build --features llvm
+inkwell = { version = "0.4", features = ["llvm17-0"], optional = true }
