@@ -1,0 +1,20 @@
+[package]
+name = "mendes-tests"
+description = "Integration tests for the Mendes programming language"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+# All Mendes crates for testing
+mendes-error = { path = "../mendes-error" }
+mendes-lexer = { path = "../mendes-lexer" }
+mendes-parser = { path = "../mendes-parser" }
+mendes-semantic = { path = "../mendes-semantic" }
+mendes-ir = { path = "../mendes-ir" }
+mendes-codegen = { path = "../mendes-codegen" }
+
+[dev-dependencies]
+# Test utilities
+tempfile = "3.10"
