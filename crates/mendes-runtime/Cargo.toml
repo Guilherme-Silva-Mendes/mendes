@@ -1,0 +1,46 @@
+[package]
+name = "mendes-runtime"
+description = "Runtime da linguagem Mendes - HTTP server, async executor, database pool"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+# Async runtime
+tokio.workspace = true
+async-trait.workspace = true
+
+# HTTP server
+hyper.workspace = true
+hyper-util.workspace = true
+http-body-util.workspace = true
+
+# Database (optional features)
+sqlx = { workspace = true, optional = true }
+
+# Serialization
+serde.workspace = true
+serde_json.workspace = true
+
+# Utilities
+parking_lot.workspace = true
+dashmap.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+thiserror.workspace = true
+url.workspace = true
+
+# WebSocket
+tokio-tungstenite.workspace = true
+futures-util.workspace = true
+uuid.workspace = true
+
+[features]
+default = ["postgres", "mysql", "sqlite"]
+postgres = ["sqlx/postgres"]
+mysql = ["sqlx/mysql"]
+sqlite = ["sqlx/sqlite"]
+
+[dev-dependencies]
+tokio-test = "0.4"
