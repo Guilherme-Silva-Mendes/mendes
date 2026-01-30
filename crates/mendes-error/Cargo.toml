@@ -1,0 +1,10 @@
+[package]
+name = "mendes-error"
+description = "Sistema de diagnósticos e erros da linguagem Mendes"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[dependencies]
+thiserror.workspace = true
