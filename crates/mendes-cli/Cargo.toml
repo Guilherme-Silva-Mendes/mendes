@@ -1,0 +1,21 @@
+[package]
+name = "mendes-cli"
+description = "CLI do compilador Mendes"
+version.workspace = true
+edition.workspace = true
+authors.workspace = true
+license.workspace = true
+
+[[bin]]
+name = "mendes"
+path = "src/main.rs"
+
+[dependencies]
+mendes-error = { path = "../mendes-error" }
+mendes-lexer = { path = "../mendes-lexer" }
+mendes-parser = { path = "../mendes-parser" }
+mendes-semantic = { path = "../mendes-semantic" }
+mendes-ir = { path = "../mendes-ir" }
+mendes-codegen = { path = "../mendes-codegen" }
+
+clap.workspace = true
